@@ -1,0 +1,16 @@
+.heading{
+    background-color: black;
+    padding: 1.5rem;
+}
+
+.ul{
+    display: flex;
+    padding: 0 5px;
+}
+
+.link{
+    display: flex;
+    padding: 0 20px;
+    color: white;
+}
+

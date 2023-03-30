@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
+import { useNavigate } from "react-router-dom";
 import classes from './signup.module.css'
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
 
     let collectData = async (e) => {
@@ -24,10 +26,15 @@ const Login = () => {
                 throw new Error('Something went wrong')
             }
             result = await result.json();
-            console.log(result);
+            // console.log(result);
+            if(result.data){
+                localStorage.setItem("user", JSON.stringify(result.data));
+                navigate('/home')
+            }
         }
         catch (error) {
             setError(error.message)
+            alert("something went wrong")
             console.log(error)
         }
     }
