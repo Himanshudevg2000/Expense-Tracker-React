@@ -32,3 +32,8 @@
     align-items: center;
     height: 25px;
 }
+
+.ProfileDetails{
+    padding: 10px 0;
+    /* background-color: red; */
+}

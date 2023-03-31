@@ -1,0 +1,17 @@
+.details{
+    /* text-align: center; */
+    padding: 10px;
+}
+
+.label{
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.box{
+    /* border: 1px solid black; */
+    margin: 0 540px;
+    padding: 1rem;
+    background-color: lightblue;
+    border-radius: 20px;
+}

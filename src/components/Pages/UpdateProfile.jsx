@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import ProfileDetails from "./ProfileDetails";
 import classes from './UpdateProfile.module.css';
 
 const UpdateProfile = () => {
@@ -34,8 +35,6 @@ const UpdateProfile = () => {
         }
     }
 
-
-
     return (
         <Fragment>
             <div className={classes.contactdetails}>
@@ -59,6 +58,10 @@ const UpdateProfile = () => {
                     />
                     <button className={classes.updatebtn} onClick={collectData} >Update</button>
                 </div>
+            </div>
+
+            <div className={classes.ProfileDetails}>
+                <ProfileDetails />
             </div>
         </Fragment>
     )
