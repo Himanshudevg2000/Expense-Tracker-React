@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react";
 import ProfileDetails from "./ProfileDetails";
+import VerifyEmailButton from "./VerifyEmailButton";
 import classes from './UpdateProfile.module.css';
 
 const UpdateProfile = () => {
@@ -7,9 +8,10 @@ const UpdateProfile = () => {
     const [fullName, setFullName] = useState("");
     const [profileUrl, setProfileUrl] = useState("");
 
-    let id = JSON.parse(localStorage.getItem('user'))
-    id = id.id
+    let userDetail = JSON.parse(localStorage.getItem('user'))
+    let id = userDetail.id
     console.log(id)
+    console.log(userDetail.email)
 
     let collectData = async () => {
         try {
@@ -63,6 +65,7 @@ const UpdateProfile = () => {
             <div className={classes.ProfileDetails}>
                 <ProfileDetails />
             </div>
+            <VerifyEmailButton/>
         </Fragment>
     )
 }

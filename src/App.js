@@ -6,6 +6,7 @@ import Login from "./components/signup/login";
 import Home from "./components/Pages/HomePage";
 import PrivateComponent from "./components/Private_component/PrivateComponent";
 import UpdateProfile from "./components/Pages/UpdateProfile";
+import VerifyEmailPage from "./components/Pages/VerifyEmailPage";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route element={<PrivateComponent />}>
         <Route path="/home" element={<Home />} ></Route>
         <Route path="/updateprofile" element={<UpdateProfile />} ></Route>
+        <Route path="/verifyemailpage" element={<VerifyEmailPage/>} ></Route>
         </Route>
         
         <Route path="/signup" element={<Signup />} ></Route>
