@@ -6,14 +6,21 @@ import classes from './signup.module.css'
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState(null);
+    // const [error, setError] = useState(null);
     const navigate = useNavigate();
 
 
-    let collectData = async (e) => {
-        setError(null);
+    // useEffect(()=> {
+    //     const auth = localStorage.getItem("user");
+    //     if(auth){
+    //         navigate('/login')
+    //     }
+    // },[])
+
+
+
+    let collectData = async () => {
         try {
-            e.preventDefault()
             console.warn(email, password);
             let result = await fetch("http://localhost:4000/api/v1/user/login", {
                 method: "POST",
@@ -33,9 +40,7 @@ const Login = () => {
             }
         }
         catch (error) {
-            setError(error.message)
             alert("something went wrong")
-            console.log(error)
         }
     }
 
@@ -63,7 +68,7 @@ const Login = () => {
             </div>
 
             <div>
-            {error && <p> {error} </p>}
+            {/* {error && <p> {error} </p>} */}
             {/* {!error && } */}
             </div>
 

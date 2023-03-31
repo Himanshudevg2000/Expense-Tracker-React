@@ -71,7 +71,8 @@ const Signup = () => {
             <div>
             {error && <p> {error} </p>}
             </div>
-        </Fragment>
+                            
+           </Fragment>
     )
 }
 

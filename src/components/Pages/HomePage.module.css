@@ -1,0 +1,22 @@
+.link {
+    color: red;
+    display: flex;
+    padding: 0 10px;
+    text-decoration: none;
+}
+
+.ul {
+    display: flex;
+    /* margin: 0 35%; */
+    padding: 10 10px;
+    text-decoration: none;
+    background-color: rgb(225, 195, 195);
+    border-radius: 20px;
+}
+
+.profile{
+    display: flex;
+    position: absolute;
+    right: 10px;
+    top: 130px;
+}

@@ -1,0 +1,34 @@
+.contactdetails{
+    border-bottom: 1px solid;
+    padding: 15px;
+    text-align: center;
+    align-items: center;
+}
+
+.updatebtn{
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    margin: 30px 49%;
+    display: block;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.updatebtn:hover{
+    font-weight: bolder;
+    background-color: lightslategray;
+    border: 1px solid lightslategray;
+}
+
+.label{
+    font-weight: bolder;
+}
+
+.inputBox{
+    width:280px;
+    align-items: center;
+    height: 25px;
+}
