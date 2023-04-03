@@ -7,6 +7,8 @@ import Home from "./components/Pages/HomePage";
 import PrivateComponent from "./components/Private_component/PrivateComponent";
 import UpdateProfile from "./components/Pages/UpdateProfile";
 import VerifyEmailPage from "./components/Pages/VerifyEmailPage";
+import ForgetPassword from "./components/signup/forgetPassword";
+import ChangePassword from "./components/signup/changePassword";
 
 function App() {
 
@@ -23,6 +25,9 @@ function App() {
         
         <Route path="/signup" element={<Signup />} ></Route>
           <Route path="/login" element={<Login />} ></Route>
+          <Route path="/forgetpassword" element={<ForgetPassword />} ></Route>
+          <Route path="/changePassword" element={<ChangePassword />} ></Route>
+
       </Routes>
     </Fragment>
   );

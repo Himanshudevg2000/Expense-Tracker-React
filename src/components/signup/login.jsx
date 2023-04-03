@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import classes from './signup.module.css'
 
 const Login = () => {
@@ -71,6 +71,7 @@ const Login = () => {
             {/* {error && <p> {error} </p>} */}
             {/* {!error && } */}
             </div>
+            <Link to='/forgetpassword' > Forget password </Link>
 
         </Fragment>
     )
