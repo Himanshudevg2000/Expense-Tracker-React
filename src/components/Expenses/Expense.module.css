@@ -1,0 +1,37 @@
+.label{
+    display: block;
+    padding: 5px 0px;
+}
+
+.select{
+    display: block;
+    text-align: center;
+    align-items: center;
+    margin: 0 187px;
+    width: 46%;
+    padding: 0.2rem;
+}
+
+.body{
+    padding: 0 0 30px 0;
+}
+
+.btn{
+    padding: 6px;
+    width: 60px;
+    text-align: center;
+    align-items: center;
+    margin: 30px 46%;
+    display: block;
+    border-radius: 10px;
+}
+
+.btn:hover{
+    font-weight: bolder;
+    background-color: lightgray;
+  }
+
+.input{
+    width: 45%;
+    text-align: center;
+}

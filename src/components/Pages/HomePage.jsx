@@ -1,11 +1,15 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import Expense from "../Expenses/Expense";
 import classes from './HomePage.module.css'
 
 const Home = () => {
     return (
         <Fragment>
             <h1> Welcome to Expense Tracker </h1>
+            <div className={classes.expense}>
+                <Expense />
+            </div>
             <div className={classes.profile}>
                 <ul className={classes.ul}>
                     <label htmlFor="message"> Your Profile is incomplete</label>
