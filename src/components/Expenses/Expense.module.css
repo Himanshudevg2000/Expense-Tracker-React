@@ -35,3 +35,32 @@
     width: 45%;
     text-align: center;
 }
+
+.expenselabel{
+    font-weight: bold;
+}
+
+/* .expenseul{
+    display: flex;
+    text-align: center;
+    align-items: center;
+} */
+
+.expensediv{
+    display: flex;
+    /* border: 2px solid red; */
+    padding: 0 45px;
+    align-items: center;
+    text-align: center;
+}
+
+.expensediv ul {
+    padding: 0 80px;
+    /* border: 2px solid; */
+}
+
+.box h4{
+    display:inline-flex;
+    padding: 0 60px;
+    border-bottom: 1px solid black;
+}
