@@ -6,15 +6,15 @@ const Expense = () => {
     const [amount, setAmount] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [list, setList] = useState(false)
-    const [addexpense, setAddExpense] = useState([])
+    const [addexpense, setAddExpense] = useState([]);
+    const [editbutton, setEditButton] = useState(false);
+    const [editId,setEditId] = useState('')
 
     let userDetail = JSON.parse(localStorage.getItem('user'))
     let id = userDetail.id
-    console.log(id)
+    // console.log(id)
 
-
-    let collectData = async (e) => {
+    let addExpenseHandler = async (e) => {
         try {
             e.preventDefault();
             let result = await fetch("http://localhost:4000/api/v1/expense/addexpense", {
@@ -29,7 +29,6 @@ const Expense = () => {
             }
             result = await result.json();
             console.log(result);
-            setList(true)
             alert("Expense added")
         }
         catch (error) {
@@ -38,13 +37,14 @@ const Expense = () => {
     }
 
     let data;
-    let apiHandler = async () => {
+    let getExpenseHandler = async () => {
         try {
             let result = await fetch('http://localhost:4000/api/v1/expense/getexpense/642567fe5bdb7d1c3ccbfbcd')
             data = await result.json();
             // console.log(data)
             const datalist = data.data.map((items) => {
                 return {
+                    id: items._id,
                     amount: items.amount,
                     description: items.description,
                     category: items.category,
@@ -58,17 +58,72 @@ const Expense = () => {
     }
 
     useEffect(() => {
-        apiHandler()
+        getExpenseHandler()
     }, []);
-    console.log(addexpense)
+
+    const deleteExpenseHandler = async (id) => {
+        // console.log(id)
+        try {
+            let result = await fetch(`http://localhost:4000/api/v1/expense/deleteexpense/${id}`, {
+                method: "delete",
+            });
+            if (!result.ok) {
+                throw new Error('Something went wrong')
+            }
+            result = await result.json();
+            console.log(result);
+            alert("Expense deleted")
+        }
+        catch (error) {
+            alert("something went wrong")
+        }
+    }
+
+    const editExpenseChangesHandler = async (id, amount, description, category) => {
+        console.log(id);
+        setEditId(id)
+        setAmount(amount);
+        setDescription(description);
+        setCategory(category);
+        setEditButton(true)
+    }
+
+    const editExpenseHandler = async () => {
+        console.log(editId)
+        try {
+            let result = await fetch(`http://localhost:4000/api/v1/expense/updateexpense/${editId}`, {
+                method: "Put",
+                body: JSON.stringify({ amount, description, category }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (!result.ok) {
+                throw new Error('Something went wrong')
+            }
+            result = await result.json();
+            console.log(result);
+            alert("Expense updated")
+            setAmount("");
+            setDescription("");
+            setCategory("");
+        }
+        catch (error) {
+            alert("something went wrong")
+        }
+    }
+
 
     const expenseList = addexpense.map((items) => {
         return (
             <div>
                 <div className={classes.expensediv}>
+                    {/* <ul className={classes.expenseul} >{items.id}</ul> */}
                     <ul className={classes.expenseul} >{items.amount}</ul>
                     <ul className={classes.expenseul}>{items.description}</ul>
                     <ul className={classes.expenseul}>{items.category}</ul>
+                    <button onClick={() => deleteExpenseHandler(items.id)}  >delete</button>
+                    <button onClick={() => editExpenseChangesHandler(items.id, items.amount, items.description, items.category)} >edit</button>
                 </div>
             </div>
         )
@@ -77,7 +132,6 @@ const Expense = () => {
     return (
         <Fragment>
             <div className={classes.body}>
-
                 <h2>All Expenses</h2>
 
                 <label className={classes.label} htmlFor="amount">Total Amount</label>
@@ -111,7 +165,8 @@ const Expense = () => {
                     <option value="travel">travel</option>
                     <option value="other">other</option>
                 </select>
-                <button className={classes.btn} onClick={collectData} >Add</button>
+                <button className={classes.btn} onClick={addExpenseHandler} >Add</button>
+                {editbutton && <button className={classes.btn} onClick={editExpenseHandler} >Edit</button>}
             </div>
 
             <div className={classes.box}>
